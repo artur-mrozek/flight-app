@@ -8,14 +8,14 @@ from .forms import LoginForm, RegisterForm
 # Create your views here.
 def login_view(request, *args, **kwargs):
     if request.user.is_authenticated:
-        return redirect("/flights/")
+        return redirect("/")
     form = LoginForm()
     if request.method == "POST":
         form = LoginForm(request.POST)
         user = authenticate(username=request.POST['username'],password=request.POST['password'])
         if user is not None:
             login(request, user)
-            return redirect('/flights/')
+            return redirect('/')
         else:
             return redirect('/passenger/login/')
     context = {"form": form}
