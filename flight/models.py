@@ -9,3 +9,6 @@ class Flight(models.Model):
     start_date = models.DateTimeField()
     arrival_date = models.DateTimeField()
     plane_id = models.ForeignKey(Plane, on_delete=models.CASCADE)
+    price_first_class = models.FloatField()
+    price_business_class = models.FloatField()
+    price_economy_class = models.FloatField()

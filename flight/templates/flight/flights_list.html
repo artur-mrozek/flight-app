@@ -1,1 +1,13 @@
 {% extends 'flight/base.html' %}
+{% block content %}
+{% for flight in queryset %}
+<p>
+    Start place: {{flight.start_place}} | Destination: {{flight.destination}} | Start date: {{flight.start_date}} | Arrival date: {{flight.arrival_date}} | 
+    Plane name: {{flight.plane_id.name}} | First class seats: {{flight.plane_id.seats_first_class}} | 
+    Business seats: {{flight.plane_id.seats_business}} | Economy seats: {{flight.plane_id.seats_economy}} | Luggage capacity: {{flight.plane_id.luggage_capacity}} kg
+    <button onclick="location.href='/ticket/buy/?flight={{flight.id}}'">
+        Buy ticket
+    </button>
+</p>
+{% endfor %}
+{% endblock content %}

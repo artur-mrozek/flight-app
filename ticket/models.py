@@ -15,6 +15,5 @@ class Ticket(models.Model):
     seat_number = models.IntegerField()
     seat_class = models.CharField(max_length=10, choices=CLASS_CHOICES, default="economy")
     passenger_id = models.ForeignKey(Passenger, on_delete=models.CASCADE)
-    price = models.FloatField()
     flight_id = models.ForeignKey(Flight, on_delete=models.CASCADE)
     
