@@ -23,6 +23,10 @@ def login_view(request, *args, **kwargs):
     context = {"form": form}
     return render(request, "passenger/login.html", context)
 
+def logout_view(request, *args, **kwargs):
+    logout(request)
+    return redirect("/passenger/login")
+
 def register_view(request, *args, **kwargs):
     if request.user.is_authenticated:
         return redirect('/')

@@ -1,5 +1,6 @@
 {% extends 'flight/base.html' %}
 {% block content %}
+<a href="/passenger/logout">Log out</a>
 {% for flight in queryset %}
 <p>
     Start place: {{flight.start_place}} | Destination: {{flight.destination}} | Start date: {{flight.start_date}} | Arrival date: {{flight.arrival_date}} | 
