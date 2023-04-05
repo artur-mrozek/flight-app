@@ -8,24 +8,44 @@ from passenger.models import Passenger
 # Create your views here.
 
 def buy_ticket_view(request, *args, **kwargs):
-    flight = get_object_or_404(Flight, pk=request.GET.get('flight',''))
+    flight_id = request.GET.get('flight','')
+    flight = get_object_or_404(Flight, pk=flight_id)
     passenger = Passenger.objects.get(user_id=request.user)
-    print(passenger)
-    form = BuyTicketForm()
+    form = BuyTicketForm(flight_id=flight_id)
     price_first_class = flight.price_first_class
     price_business_class = flight.price_business_class
     price_economy_class = flight.price_economy_class
+    seats_total = flight.plane_id.seats_first_class + flight.plane_id.seats_business + flight.plane_id.seats_economy
+    seats_first_class = flight.plane_id.seats_first_class
+    seats_business = flight.plane_id.seats_business
+    seats_economy = flight.plane_id.seats_economy
+    luggage = flight.plane_id.luggage_capacity
+    tickets = Ticket.objects.filter(flight_id=flight)
 
     if request.method == 'POST':
-        form = BuyTicketForm(request.POST)
+        form = BuyTicketForm(request.POST, flight_id=flight_id)
         if form.is_valid():
             ticket = Ticket(seat_number=request.POST['seat_number'],seat_class=request.POST['seat_class'],passenger_id=passenger,flight_id=flight)
             ticket.save()
+            if request.POST['seat_class'] == "first":
+                flight.plane_id.seats_first_class = flight.plane_id.seats_first_class - 1
+            if request.POST['seat_class'] == "business":
+                flight.plane_id.seats_business = flight.plane_id.seats_business - 1
+            if request.POST['seat_class'] == "economy":
+                flight.plane_id.seats_economy = flight.plane_id.seats_economy - 1
+            flight.plane_id.luggage_capacity = flight.plane_id.luggage_capacity - float(request.POST['luggage'])
+            flight.plane_id.save()
             return redirect('/')
     context = {
         "form": form,
         "price_first_class": price_first_class,
         "price_business_class": price_business_class,
-        "price_economy_class": price_economy_class
+        "price_economy_class": price_economy_class,
+        "seats_total": seats_total,
+        "tickets": tickets,
+        "seats_first_class": seats_first_class,
+        "seats_business": seats_business,
+        "seats_economy": seats_economy,
+        "luggage": luggage
         }
     return render(request, "ticket/buy_ticket.html", context)

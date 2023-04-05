@@ -5,6 +5,17 @@
     <p>First class price: {{price_first_class}}$</p>
     <p>Business class price: {{price_business_class}}$</p>
     <p>Economy class price: {{price_economy_class}}$</p>
+    <p>Free first class seats: {{seats_first_class}}</p>
+    <p>Free business class seats: {{seats_business}}</p>
+    <p>Free economy class seats: {{seats_economy}}</p>
+    <p>Total free seats: {{seats_total}}</p>
+    <p>Available luggage: {{luggage}} kg</p>
+    <p>
+        Occupied seats:
+        {% for ticket in tickets %}
+            {{ticket.seat_number}},
+        {% endfor %}
+    </p>
     <input type="submit" value="Buy">
 </form>
 {% endblock content %}
