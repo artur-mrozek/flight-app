@@ -12,10 +12,24 @@ body{
 .form-container{
     margin: auto;
     background-color: rgba(23, 194, 204, 0.8);
-    padding: 20px;
+    padding: 10px 40px 20px 40px;
+    width: 200px;
     border: 1px solid white;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.form-container form label {
+    display: block;
+}
+
+.form-container form input {
+    flex: 1;
+}
+
 .login-form{
     font-weight: bold;
     margin: auto;
