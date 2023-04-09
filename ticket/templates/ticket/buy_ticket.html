@@ -1,21 +1,30 @@
-{% extends 'ticket/base.html' %}
+{% extends 'ticket/base.html' %} 
 {% block content %}
-<form method="post"> {% csrf_token %}
-    {{form.as_p}}
-    <p>First class price: {{price_first_class}}$</p>
-    <p>Business class price: {{price_business_class}}$</p>
-    <p>Economy class price: {{price_economy_class}}$</p>
-    <p>Free first class seats: {{seats_first_class}}</p>
-    <p>Free business class seats: {{seats_business}}</p>
-    <p>Free economy class seats: {{seats_economy}}</p>
-    <p>Total free seats: {{seats_total}}</p>
-    <p>Available luggage: {{luggage}} kg</p>
-    <p>
-        Occupied seats:
-        {% for ticket in tickets %}
-            {{ticket.seat_number}},
-        {% endfor %}
-    </p>
-    <input type="submit" value="Buy">
+<form class="form-container" method="post">
+<div class="top">
+  <div class="tops">{% csrf_token %} {{form.as_p}}</div>
+  <div class="tops">
+    <span>Available luggage: {{luggage}} kg</span>
+    <span>Total free seats: {{seats_total}}</span>
+    <span>Occupied seats: {% for ticket in tickets %} {{ticket.seat_number}}, {% endfor %}</span>
+  </div>
+</div>
+<div class="mid">
+  <div class="mids">
+    <span>First class price: {{price_first_class}}$</span>
+    <span>Free first class seats: {{seats_first_class}}</span>
+  </div>
+  <div class="mids">
+    <span>Business class price: {{price_business_class}}$</span>
+    <span>Free business class seats: {{seats_business}}</span>
+  </div>
+  <div class="mids">
+    <span>Economy class price: {{price_economy_class}}$</span>
+    <span>Free economy class seats: {{seats_economy}}</span>
+  </div>
+</div>
+<div class="bottom">
+  <input type="submit" value="BUY" />
+</div>
 </form>
 {% endblock content %}
