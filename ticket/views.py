@@ -49,3 +49,9 @@ def buy_ticket_view(request, *args, **kwargs):
         "luggage": luggage
         }
     return render(request, "ticket/buy_ticket.html", context)
+
+def my_tickets_view(request, *args, **kwargs):
+    passenger = Passenger.objects.get(user_id=request.user)
+    tickets = Ticket.objects.filter(passenger_id=passenger)
+    context = {"tickets": tickets}
+    return render(request, "ticket/my_tickets.html", context)

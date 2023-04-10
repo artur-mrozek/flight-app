@@ -1,0 +1,8 @@
+{% extends 'ticket/base.html' %}
+{% block content %}
+{% for ticket in tickets %}
+<p>Ticket number: {{ticket.id}} | Seat number: {{ticket.seat_number}} | Seat class: {{ticket.seat_class}} | Start place: {{ticket.flight_id.start_place}} | 
+    Destination: {{ticket.flight_id.destination}} | Start date: {{ticket.flight_id.start_date}} | Arrival date: {{ticket.flight_id.arrival_date}} | 
+    Plane name: {{ticket.flight_id.plane_id.name}}</p>
+{% endfor %}
+{% endblock content %}
