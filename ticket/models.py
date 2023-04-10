@@ -7,9 +7,9 @@ from flight.models import Flight
 
 class Ticket(models.Model):
     CLASS_CHOICES = (
-    ("first","first"),
-    ("business","business"),
-    ("economy","economy")
+    ("First","First"),
+    ("Business","Business"),
+    ("Economy","Economy")
     )   
     
     seat_number = models.IntegerField()

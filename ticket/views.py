@@ -27,11 +27,11 @@ def buy_ticket_view(request, *args, **kwargs):
         if form.is_valid():
             ticket = Ticket(seat_number=request.POST['seat_number'],seat_class=request.POST['seat_class'],passenger_id=passenger,flight_id=flight)
             ticket.save()
-            if request.POST['seat_class'] == "first":
+            if request.POST['seat_class'] == "First":
                 flight.plane_id.seats_first_class = flight.plane_id.seats_first_class - 1
-            if request.POST['seat_class'] == "business":
+            if request.POST['seat_class'] == "Business":
                 flight.plane_id.seats_business = flight.plane_id.seats_business - 1
-            if request.POST['seat_class'] == "economy":
+            if request.POST['seat_class'] == "Economy":
                 flight.plane_id.seats_economy = flight.plane_id.seats_economy - 1
             flight.plane_id.luggage_capacity = flight.plane_id.luggage_capacity - float(request.POST['luggage'])
             flight.plane_id.save()

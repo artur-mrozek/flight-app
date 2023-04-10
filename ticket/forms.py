@@ -5,9 +5,9 @@ from .models import Ticket
 
 class BuyTicketForm(forms.Form):
     CLASS_CHOICES = (
-    ("first","first"),
-    ("business","business"),
-    ("economy","economy")
+    ("First","First"),
+    ("Business","Business"),
+    ("Economy","Economy")
     )
 
     def __init__(self, *args, **kwargs):
