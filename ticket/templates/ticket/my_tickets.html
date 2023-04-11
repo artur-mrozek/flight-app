@@ -1,8 +1,22 @@
 {% extends 'ticket/base.html' %}
 {% block content %}
 {% for ticket in tickets %}
-<p>Ticket number: {{ticket.id}} | Seat number: {{ticket.seat_number}} | Seat class: {{ticket.seat_class}} | Start place: {{ticket.flight_id.start_place}} | 
-    Destination: {{ticket.flight_id.destination}} | Start date: {{ticket.flight_id.start_date}} | Arrival date: {{ticket.flight_id.arrival_date}} | 
-    Plane name: {{ticket.flight_id.plane_id.name}}</p>
+<form class="form-container-mytickets">
+    <div class="top-mytickets">
+        <span>Plane name: {{ticket.flight_id.plane_id.name}}</span>
+    </div>
+    <div class="bottom-mytickets">
+        <div class="left-mytickets">
+            <span class="span-mytickets">Ticket number: {{ticket.id}}</span>
+            <span class="span-mytickets">Seat number: {{ticket.seat_number}}</span>
+            <span class="span-mytickets">Seat class: {{ticket.seat_class}}</span></div>
+        <div class="right-mytickets">
+            <span class="span-mytickets">Start place: {{ticket.flight_id.start_place}}</span>
+            <span class="span-mytickets">Start date: {{ticket.flight_id.start_date}}</span>
+            <span class="span-mytickets">Destination: {{ticket.flight_id.destination}}</span>
+            <span class="span-mytickets">Arrival date: {{ticket.flight_id.arrival_date}}</span>
+        </div>
+    </div>
+</form>
 {% endfor %}
 {% endblock content %}

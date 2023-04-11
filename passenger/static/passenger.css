@@ -15,7 +15,7 @@ body{
     background-color: rgba(23, 194, 204, 0.8);
     padding: 10px 40px 20px 40px;
     width: 200px;
-    border: 1px solid white;
+    border: 3px solid white;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -48,4 +48,14 @@ body{
 }
 h3{
     text-align: center;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #10a6b0;
+}
+
+input:hover {
+    cursor: pointer;
+    background-color: #10a6b0;
 }

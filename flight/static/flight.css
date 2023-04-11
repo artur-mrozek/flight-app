@@ -17,6 +17,7 @@ body{
     justify-content: end;
     align-items: center;
     padding: 20px;
+    border-bottom: 5px solid white;
 }
 
 .top a{
@@ -28,6 +29,7 @@ body{
     border-radius: 10px;
     background-color: #24D4DF;
     font-weight: bold;
+    margin-left: 5px;
 }
 
 .ticket-container {
@@ -40,9 +42,9 @@ body{
 .ticket{
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 10px;
-    width: 60%;
+    width: 70%;
     height: 300px;
     border: 5px solid white;
     border-radius: 10px;
@@ -53,7 +55,7 @@ body{
     height: 20%;
     width: 100%;
     padding: 10px;
-    border-bottom: 3px solid white;
+    border-bottom: 5px solid white;
     box-sizing: border-box;
     font-size: 20px;
     font-weight: bold;
@@ -63,14 +65,13 @@ body{
 .inTicket{
     height: 60%;
     width: 100%;
-    padding: 10px;
     box-sizing: border-box;
     color: black;
     font-weight: bold;
+    padding-left: 10px;
     background-color: rgba(255,255,255,0.6);
     display: flex;
 }
-
 
 .inTicketLeft{
     display: inline-block;
@@ -101,7 +102,7 @@ body{
     height: 20%;
     width: 100%;
     padding: 10px;
-    border-top: 3px solid white;
+    border-top: 5px solid white;
     box-sizing: border-box;
     background-color: rgba(23, 194, 204, 0.8);
     display: flex;
@@ -123,6 +124,25 @@ body{
 .inTicketMid span,
 .inTicketRight span{
     display: block;
-    padding-top: 5px;
+}
+
+.inTicketLeft span,
+.inTicketMid span{
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.inTicketRight span{
+    padding-top: 15px;
     padding-bottom: 5px;
+}
+
+button:hover {
+    background-color: #10a6b0;
+    cursor: pointer;
+}
+
+a:hover{
+    background-color: #10a6b0;
+    cursor: pointer; 
 }
