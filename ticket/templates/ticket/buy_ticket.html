@@ -2,8 +2,8 @@
 {% block content %}
 <form class="form-container" method="post">
 <div class="top">
-  <div class="tops">{% csrf_token %} {{form.as_p}}</div>
-  <div class="tops">
+  <div class="topsL">{% csrf_token %} {{form.as_p}}</div>
+  <div class="topsR">
     <span>Available luggage: {{luggage}} kg</span>
     <span>Total free seats: {{seats_total}}</span>
     <span>Occupied seats: {% for ticket in tickets %} {{ticket.seat_number}}, {% endfor %}</span>

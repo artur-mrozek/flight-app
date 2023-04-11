@@ -30,15 +30,16 @@ body{
 .top {
     display: flex;
     flex-direction: row;
-    height: 50%;
+    height: 60%;
     width: 100%;
     box-sizing: border-box;
     background-color: rgba(23, 194, 204, 0.8);
     justify-content: space-between;
     border-bottom: 5px solid white;
+    padding-bottom: 40px;
 }
 
-.tops {
+.topsL {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -48,12 +49,27 @@ body{
     align-items: start;
 }
 
+.topsR {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px 25px;
+    justify-content: center;
+    align-items: start;
+}
+
+.topsR span{
+    padding-top: 30px;
+    padding-left: 25px;
+}
+
 .mid {
     background-color: rgba(255,255,255,0.6);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 38%;
+    height: 28%;
     width: 100%;
     box-sizing: border-box;
     color: black;
@@ -105,27 +121,53 @@ select{
     padding: 0 45px;
 }
 
+ul{
+    position: relative;
+    width: 50%;
+}
 
+li{
+    position: absolute;
+    top: 50px;
+    left: 200px;
+    width: 100%;
+}
+
+
+.container-mytickets{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mytickets-bottom{
+    margin-top: 10px;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    padding-bottom: 15px;
+}
 
 .form-container-mytickets{
-    margin: auto;
+    margin: 0 auto;
     width: 50%;
     border: 5px solid white;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 300px;
+    height: 260px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    margin-bottom: 15px;
 }
 
 .top-mytickets {
     width: 100%;
-    height: 30%;
+    height: 10%;
     background-color: rgba(23, 194, 204, 0.8);
     box-sizing: border-box;
     display: flex;
@@ -139,7 +181,7 @@ select{
   
 .bottom-mytickets {
     width: 100%;
-    height: 70%;
+    height: 90%;
     display: flex;
     flex-direction: row;
     align-items: center;
