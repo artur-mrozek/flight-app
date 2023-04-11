@@ -6,7 +6,16 @@
   <div class="topsR">
     <span>Available luggage: {{luggage}} kg</span>
     <span>Total free seats: {{seats_total}}</span>
-    <span>Occupied seats: {% for ticket in tickets %} {{ticket.seat_number}}, {% endfor %}</span>
+    <span>
+      Occupied seats: 
+      {% for ticket in tickets %} 
+        {% if not forloop.last %}
+          {{ticket.seat_number}}, 
+        {% else %}
+          {{ticket.seat_number}}
+        {% endif %}
+      {% endfor %}
+    </span>
   </div>
 </div>
 <div class="mid">
